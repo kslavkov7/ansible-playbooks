@@ -1,0 +1,25 @@
+---
+- name: httpd and telnet
+  hosts: all
+
+  tasks:
+    - name: intall httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: start httpd
+      service:
+        name: httpd
+        state: started
+
+    - name: install telnet
+      yum: 
+        name: telnet
+        state: present
+
+# When running playbooks, we can use modified commands to skip some parts of the playbooks and start from where we want
+
+# For example : ansible-playbook httptelnet.yml --start-at-task 'start httpd' 
+
+# the above command will skip the installation of httpd (previously installed and will go straight to the next tasks in it

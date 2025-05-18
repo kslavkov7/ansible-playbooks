@@ -1,0 +1,13 @@
+---
+- name: Add or update user password
+  hosts: all
+
+  tasks:
+  - name: Change "george" password
+    user:
+      name: george
+      update_password: always
+      password: "{{ newpassword|password_hash('sha512') }}"
+
+# To run this playbook we need to pass the variable in the command
+# For example : ansible-playbook changepass.yml --extra-vars newpassword=(your new password) 

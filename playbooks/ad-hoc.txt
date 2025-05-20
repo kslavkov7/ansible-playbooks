@@ -1,0 +1,48 @@
+Ad-Hoc commands
+
+- Pinging localhost
+ansible localhost -m ping
+
+- Creating a file on remote client
+ansible all -m file -a "path=/home/kslavkov7/adhoc1 state=touch mode=700"
+
+- Deleting a file on remote client
+ansible all -m file -a "path=/home/kslavkov7/adhoc1 state=absent"
+
+- Copying a file from the host to a remote client
+ansible all -m copy -a "src=/tmp/adhoc2 dest=/home/kslavkov7/adhoc2"
+
+- Install telnet on a remote host 
+ansible all -m yum -a "name=telnet state=present"
+
+- Install httpd-manual on a remote host
+ansible all -m yum -a "name=httpd-manual state=present"
+
+- Starting httpd service package on remote host
+ansible all -m service -a "name=httpd state=started"
+
+- Starting httpd and enabling at boot time 
+ansible all -m service -a "name=httpd state=started enabled=yes"
+
+- Checking httpd service status on remote host 
+ansible all -m shell -a "systemctl status httpd"
+
+- Remove httpd package on remote host
+ansible all -m yum -a "name=httpd state=absent"
+
+- Creating a user on remote host
+ansible all -m user -a "name=jsmith home=/home/jsmith shell=/bin/bash state=present"
+
+- Changing user's group on remote host 
+ansible all -m user -a "name=jsmith group=kslavkov7"
+
+- Deleting a user on remote host 
+ansible all -m user -a "name=jsmith home=/home/jsmith shell=/bin/bash state=absent" 
+or 
+ansible all -m shell -a "userdel george"
+
+- Getting system information from remote hosts 
+ansible all -m setup
+
+- You can run some commands on the remote host without shell module (for example here we are rebooting the remote system) 
+ansible all -a "sbin/reboot"

@@ -1,0 +1,23 @@
+---
+- name: Setup Apache server
+  hosts: localhost
+  tasks: 
+  - name: Install httpd
+    yum:
+      name: httpd
+      state: present
+    tags: i-httpd
+
+  - name: Start httpd
+    service:
+      name: httpd
+      state: started
+    tags: s-httpd
+
+# run the playbook with first tag -> ansible-playbook httpbytags.yml -t i-httpd
+
+# run the playbook with second tag -> ansible-playbook httpbytags.yml -t s-httpd
+
+# list all tags in a playbook -> ansible-playbook httpbytags.yml --list-tags
+
+# skip a task using tag -> ansible-playbook httpbytags.yml --skip-tags i-httpd

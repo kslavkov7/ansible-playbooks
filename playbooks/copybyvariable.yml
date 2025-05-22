@@ -1,0 +1,16 @@
+---
+- name: Copy file to remote clients
+  hosts: all
+  vars: 
+    srcfile: /home/kslavkov7/somefile
+  tasks:
+
+  - name: Copying file
+    become: true
+    copy:
+      src: "{{ srcfile }}"
+      dest: /tmp
+      owner: kslavkov7
+      group: kslavkov7
+      mode: 0644
+

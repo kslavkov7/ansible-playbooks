@@ -1,0 +1,19 @@
+ansible-config
+- shows or modifies Ansible configuration
+
+ansible-connection
+- connection command for remote clients
+
+ansible-console
+- allows for running ad-hoc tasks against a chosen inventory from a nice shell 
+
+ansible-doc
+- you can access manuals on plug-ins and modules through this command
+
+ansible-galaxy
+- command to manage Ansible roles in shared repositories
+
+ansible-inventory
+- using it provides with details of your hosts inventory files
+
+

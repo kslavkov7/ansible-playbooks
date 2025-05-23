@@ -1,0 +1,21 @@
+Ansible Vault is used to encrypt our playbooks (yml files)
+
+ansible-vault create *playbook-name* 
+- to create an encrypted playbook using Ansible Vault
+
+ansible-playbook *playbook-name* --ask-vault-pass
+- to run an encrypted playbook
+
+ansible-vault view *playbook-name*
+- to view an encrypted playbook (similiar to cat)
+
+ansible-vault edit *playbook-name*
+- to edit an encrypted playbook (similiar to vi/vim)
+
+ansible-vault --help
+- to get a list of the options
+
+ansible-vault encrypt *playbook-name*
+- to encrypt an already created playbook
+
+

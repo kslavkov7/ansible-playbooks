@@ -1,0 +1,22 @@
+---
+- name: Test encrypted output
+  hosts: localhost
+  vars:
+    secret: !vault |
+          $ANSIBLE_VAULT;1.1;AES256
+          37323865383832666563323239323132393234656131306239326666393434373064396133643735
+          3133643666316234323435653632386366646461656132610a613833656530343939323934663035
+          66616631363130333662343331363737326630343032666335643265653666336666663236376437
+          3332376538663138630a653430633630343866626430383163366635386535616236656333343535
+          3439
+
+
+  tasks: 
+    - name: Print encrypted string
+      debug:
+        var: secret
+
+
+# ansible-vault encrypt_string *string* - this can encrypt a string and the encryption can be used later so we don't need to encryp to whole playbook 
+
+

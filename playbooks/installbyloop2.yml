@@ -1,0 +1,15 @@
+---
+- name: Install packages thru loop
+  hosts: localhost
+  vars:
+    packages: [ftp,telnet,htop]
+
+  tasks:
+  - name: Install package
+    yum:
+      name: "{{ packages }}"
+      state: present
+
+
+# with the yum module, we can pass the variable directly and there is no need to use the with_items keyword
+    
